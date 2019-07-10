@@ -1,13 +1,11 @@
 package com.jeffbrandon.demo.dagger
 
-import com.jeffbrandon.demo.dagger.engine.Engine
 import timber.log.Timber
 import javax.inject.Inject
 
 class Train @Inject constructor(
     private val conductor: Conductor,
-    private val rails: Rails,
-    private val engine: Engine
+    private val rails: Rails
 ) {
 
     fun run() {
@@ -16,7 +14,7 @@ class Train @Inject constructor(
         Timber.i("${rails.distance}")
         var remaining = rails.distance
         while (remaining > 0) {
-            val step = conductor.drive(engine)
+            val step = conductor.drive()
             if (step > 0)
                 remaining -= step
             else {

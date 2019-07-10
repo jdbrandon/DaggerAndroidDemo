@@ -1,10 +1,11 @@
 package com.jeffbrandon.demo.dagger.engine
 
-import com.jeffbrandon.demo.dagger.fuel.Fuel
 import com.jeffbrandon.demo.dagger.heat.HeatSource
 import javax.inject.Inject
+import javax.inject.Singleton
 
-class FutureEngine @Inject constructor(heat: HeatSource, fuel: Fuel) : Engine(heat, fuel) {
+@Singleton
+class FutureEngine @Inject constructor(heat: HeatSource) : Engine(heat) {
     override val powerEfficiency: Int
         get() = 3
 }

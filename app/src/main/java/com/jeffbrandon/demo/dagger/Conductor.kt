@@ -3,7 +3,7 @@ package com.jeffbrandon.demo.dagger
 import com.jeffbrandon.demo.dagger.engine.Engine
 import javax.inject.Inject
 
-class Conductor @Inject constructor(water: Water) {
+class Conductor @Inject constructor(water: Water, private val engine: Engine) {
     init {
         drinkWater(water)
     }
@@ -17,7 +17,7 @@ class Conductor @Inject constructor(water: Water) {
         }
     }
 
-    fun drive(engine: Engine): Int {
+    fun drive(): Int {
         engine.consumeFuel()
         return engine.generatePower()
     }
